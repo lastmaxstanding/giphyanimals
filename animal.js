@@ -1,13 +1,12 @@
 $( document ).ready(function() {
 
-var animals = ['bird'];
+var animals = ['bird', 'snake'];
 
 
 function displayGiphy(){
 
-    var giphy = $(this).data('data-name');
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + p + "&api_key=dc6zaTOxFJmzC&limit=10";
-
+    var giphy = $(this).attr('data-name');
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + giphy + "&api_key=dc6zaTOxFJmzC&limit=10";
     $.ajax({url: queryURL, method: 'GET'}).done(function(response) {
                 
         var results = response.data;
@@ -76,16 +75,16 @@ function displayGiphy(){
 
 function renderButtons(){ 
 
-$('#animalView').empty();
+    $('#animalView').empty();
 
-for (var i = 0; i < animals.length; i++){
-    var a = $('<button>')
+    for (var i = 0; i < animals.length; i++){
+        var a = $('<button>')
 
-    a.addClass('aniBtn');
-    a.attr('data-name', animals[i]);
-    a.text(animals[i]);
-    $('#animalView').append(a);
-}
+        a.addClass('aniBtn');
+        a.attr('data-name', animals[i]);
+        a.text(animals[i]);
+        $('#animalView').append(a);
+    }
 
 }
 
