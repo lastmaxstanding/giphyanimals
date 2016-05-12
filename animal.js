@@ -76,7 +76,7 @@ function displayGiphy(){
 
 function renderButtons(){ 
 
-$('#animalButton').empty();
+$('#animalView').empty();
 
 for (var i = 0; i < animals.length; i++){
     var a = $('<button>')
@@ -84,7 +84,7 @@ for (var i = 0; i < animals.length; i++){
     a.addClass('aniBtn');
     a.attr('data-name', animals[i]);
     a.text(animals[i]);
-    $('#animalButton').append(a);
+    $('#animalView').append(a);
 }
 
 }
